@@ -1,0 +1,3 @@
+/home/rezuki/CLionProjects/New Folder/computer-graphics/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/rezuki/CLionProjects/New Folder/computer-graphics/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/rezuki/CLionProjects/New Folder/computer-graphics/cmake-build-debug/CMakeFiles/untitled2.dir

@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/untitled2.dir/main.c.o CMakeFiles/untitled2.dir/stroke.c.o CMakeFiles/untitled2.dir/shape.c.o CMakeFiles/untitled2.dir/util.c.o  -o untitled2  /usr/lib/libXbgi.a -lX11 -lm 
