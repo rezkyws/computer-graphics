@@ -12,7 +12,6 @@ CMakeFiles/untitled2.dir/stroke.c.o: ../stroke.c
 CMakeFiles/untitled2.dir/stroke.c.o: ../stroke.h
 
 CMakeFiles/untitled2.dir/util.c.o: ../shape.h
-CMakeFiles/untitled2.dir/util.c.o: ../stroke.h
 CMakeFiles/untitled2.dir/util.c.o: ../util.c
 CMakeFiles/untitled2.dir/util.c.o: ../util.h
 

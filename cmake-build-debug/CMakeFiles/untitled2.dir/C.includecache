@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/rezuki/CLionProjects/New Folder/computer-graphics/main.c
-stdio.h
--
-graphics.h
--
-util.h
-/home/rezuki/CLionProjects/New Folder/computer-graphics/util.h
-
 /home/rezuki/CLionProjects/New Folder/computer-graphics/shape.c
 shape.h
 /home/rezuki/CLionProjects/New Folder/computer-graphics/shape.h
@@ -24,25 +16,7 @@ stroke.h
 graphics.h
 -
 
-/home/rezuki/CLionProjects/New Folder/computer-graphics/stroke.c
-stroke.h
 /home/rezuki/CLionProjects/New Folder/computer-graphics/stroke.h
-
-/home/rezuki/CLionProjects/New Folder/computer-graphics/stroke.h
-graphics.h
--
-
-/home/rezuki/CLionProjects/New Folder/computer-graphics/util.c
-graphics.h
--
-util.h
-/home/rezuki/CLionProjects/New Folder/computer-graphics/util.h
-shape.h
-/home/rezuki/CLionProjects/New Folder/computer-graphics/shape.h
-stroke.h
-/home/rezuki/CLionProjects/New Folder/computer-graphics/stroke.h
-
-/home/rezuki/CLionProjects/New Folder/computer-graphics/util.h
 graphics.h
 -
 

@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include<graphics.h>
+#include <graphics.h>
 #include "util.h"
 
 int main() {
     int x,y;
-    printf("Masukkan size canvas :\n");
+    printf("Enter size canvas :\n");
     printf("Panjang : ");
     scanf("%d",&x);
     printf("Lebar : ");
