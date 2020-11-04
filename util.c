@@ -103,14 +103,16 @@ void main_menu() {
             }
                 break;
             case 9: {
-                int x0, y0, radius;
+                int x0, y0, radius, width;
                 printf("Masukkan titik x0 : ");
                 scanf("%d", &x0);
                 printf("Masukkan titik y0 : ");
                 scanf("%d", &y0);
                 printf("Masukkan panjang radius : ");
                 scanf("%d", &radius);
-                midpoint_algorithm(x0, y0, radius);
+                printf("Masukkan tebal : ");
+                scanf("%d", &width);
+                midpoint_algorithm(x0, y0, radius, width);
             }
                 break;
             case 10: {

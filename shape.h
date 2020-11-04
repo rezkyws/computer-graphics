@@ -15,7 +15,7 @@ void create_trapezium(int alas, int sisi_miring);
 void create_triangle(int alas, int tinggi);
 void create_diamond(int d1, int d2);
 void box_animated();
-void midpoint_algorithm(int x0, int y0, int radius);
+void midpoint_algorithm(int x0, int y0, int radius, int width);
 void create_smiley();
 void create_logo();
 

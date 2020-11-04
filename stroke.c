@@ -27,20 +27,22 @@ void dda_line_normal(int x1, int x2, int y1, int y2, int colour, int width) {
             for (float j = 0; j < width; j += 0.1) {
                 //vertical line
                 if (x1 == x2) {
-                    putpixel(x + j, y, colour);
+//                    putpixel(x + j, y, colour);
                     putpixel(x - j, y, colour);
                 }
                     //horizontal line
                 else if (y1 == y2) {
-                    putpixel(x, y + j, colour); //INSIDE
+//                    putpixel(x, y + j, colour); //INSIDE
                     putpixel(x, y - j, colour); //OUTSIDE
                 }
                     //m!=0 line
-                else {
-                    putpixel(x + j, y - j, colour);
+                else if (x1 < x2) {
+//                    putpixel(x + j, y - j, colour);
+                    putpixel(x - j, y + j, colour);
+                } else {
+//                    putpixel(x - j, y - j, colour);
                     putpixel(x - j, y + j, colour);
                 }
-
             }
         } else {
             putpixel(x, y, colour);
@@ -73,17 +75,20 @@ void dda_line_dashed(int x1, int x2, int y1, int y2, int colour, int width) {
                 for (float j = 0; j < width; j += 0.1) {
                     //vertical line
                     if (x1 == x2) {
-                        putpixel(x + j, y, colour); //INSIDE
-                        putpixel(x - j, y, colour); //OUTSIDE
+//                    putpixel(x + j, y, colour);
+                        putpixel(x - j, y, colour);
                     }
                         //horizontal line
                     else if (y1 == y2) {
-                        putpixel(x, y + j, colour);
-                        putpixel(x, y - j, colour);
+//                    putpixel(x, y + j, colour); //INSIDE
+                        putpixel(x, y - j, colour); //OUTSIDE
                     }
                         //m!=0 line
-                    else {
-                        putpixel(x + j, y - j, colour);
+                    else if (x1 < x2) {
+//                    putpixel(x + j, y - j, colour);
+                        putpixel(x - j, y + j, colour);
+                    } else {
+//                    putpixel(x - j, y - j, colour);
                         putpixel(x - j, y + j, colour);
                     }
                 }
@@ -117,17 +122,20 @@ void dda_line_dotted(int x1, int x2, int y1, int y2, int colour, int width) {
                 for (float j = 0; j < width; j += 0.1) {
                     //vertical line
                     if (x1 == x2) {
-                        putpixel(x + j, y, colour); //INSIDE
-                        putpixel(x - j, y, colour); //OUTSIDE
+//                    putpixel(x + j, y, colour);
+                        putpixel(x - j, y, colour);
                     }
                         //horizontal line
                     else if (y1 == y2) {
-                        putpixel(x, y + j, colour);
-                        putpixel(x, y - j, colour);
+//                    putpixel(x, y + j, colour); //INSIDE
+                        putpixel(x, y - j, colour); //OUTSIDE
                     }
                         //m!=0 line
-                    else {
-                        putpixel(x + j, y - j, colour);
+                    else if (x1 < x2) {
+//                    putpixel(x + j, y - j, colour);
+                        putpixel(x - j, y + j, colour);
+                    } else {
+//                    putpixel(x - j, y - j, colour);
                         putpixel(x - j, y + j, colour);
                     }
                 }
@@ -155,46 +163,54 @@ void dda_line_dashed_dotted(int x1, int x2, int y1, int y2, int colour, int widt
     y = y1;
     putpixel(x1, y1, colour);
     for (i = 0; i <= len; i++) {
-        if (i % 9 < 2) {}
+        // dashed line
+        if (i % 9 < 1) {}
         else if (i % 9 < 6) {
             putpixel(x, y, colour);
             if (width > 1) {
                 for (float j = 0; j < width; j += 0.1) {
                     //vertical line
                     if (x1 == x2) {
-                        putpixel(x + j, y, colour);
+//                    putpixel(x + j, y, colour);
                         putpixel(x - j, y, colour);
                     }
                         //horizontal line
                     else if (y1 == y2) {
-                        putpixel(x, y + j, colour); //INSIDE
+//                    putpixel(x, y + j, colour); //INSIDE
                         putpixel(x, y - j, colour); //OUTSIDE
                     }
                         //m!=0 line
-                    else {
-                        putpixel(x + j, y - j, colour);
+                    else if (x1 < x2) {
+//                    putpixel(x + j, y - j, colour);
+                        putpixel(x - j, y + j, colour);
+                    } else {
+//                    putpixel(x - j, y - j, colour);
                         putpixel(x - j, y + j, colour);
                     }
                 }
             }
-        } else if (i % 9 == 7) {}
+        } else if (i % 9 == 7) {} // space
+        // dot
         else {
             putpixel(x, y, colour);
             if (width > 1) {
                 for (float j = 0; j < width; j += 0.1) {
                     //vertical line
                     if (x1 == x2) {
-                        putpixel(x + j, y, colour); //INSIDE
-                        putpixel(x - j, y, colour); //OUTSIDE
+//                    putpixel(x + j, y, colour);
+                        putpixel(x - j, y, colour);
                     }
                         //horizontal line
                     else if (y1 == y2) {
-                        putpixel(x, y + j, colour);
-                        putpixel(x, y - j, colour);
+//                    putpixel(x, y + j, colour); //INSIDE
+                        putpixel(x, y - j, colour); //OUTSIDE
                     }
                         //m!=0 line
-                    else {
-                        putpixel(x + j, y - j, colour);
+                    else if (x1 < x2) {
+//                    putpixel(x + j, y - j, colour);
+                        putpixel(x - j, y + j, colour);
+                    } else {
+//                    putpixel(x - j, y - j, colour);
                         putpixel(x - j, y + j, colour);
                     }
                 }

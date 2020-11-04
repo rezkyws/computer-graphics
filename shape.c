@@ -134,14 +134,18 @@ void create_trapezium(int alas, int sisi_miring) {
 }
 
 void create_diamond(int d1, int d2) {
-    int midX, midY;
-    midX = getmaxx() / 2;
-    midY = getmaxy() / 2;
+    int x0, y0;
+    printf("Masukkan titik pusat x (x0) : ");
+    scanf("%d", &x0);
+    printf("Masukkan titik pusat y (y0) : ");
+    scanf("%d", &y0);
+//    midX = getmaxx() / 2;
+//    midY = getmaxy() / 2;
 
-    create_line(midX, abs(midY - d2), midX + d1, midY);
-    create_line(midX + d1, midY, midX, midY + d2);
-    create_line(midX, midY + d2, abs(midX - d1), midY);
-    create_line(abs(midX - d1), midY, midX, abs(midY - d2));
+    create_line(x0, x0 + d1,abs(y0 - d2), y0);
+    create_line(x0 + d1, x0, y0, y0 + d2);
+    create_line(x0,abs(x0 - d1),y0 + d2, y0);
+    create_line(abs(x0 - d1), x0, y0, abs(y0 - d2));
 }
 
 void create_triangle(int alas, int tinggi) {
@@ -159,7 +163,7 @@ void create_triangle(int alas, int tinggi) {
     usleep(5 * 500);
 }
 
-void midpoint_algorithm(int x0, int y0, int radius) {
+void midpoint_algorithm(int x0, int y0, int radius, int width) {
     float dx = 1, dy = 1;
     float x = radius - 1, y = 0;
     float error = dx - (radius << 1);
@@ -172,6 +176,26 @@ void midpoint_algorithm(int x0, int y0, int radius) {
         putpixel(x0 - y, y0 - x, 6);
         putpixel(x0 + y, y0 - x, 7);
         putpixel(x0 + x, y0 - y, 8);
+        if (width > 1){
+            for(int i = 1; i<=width;i++){
+//                putpixel(x0 + x+i, y0 + y+i, 1);
+//                putpixel(x0 + y+i, y0 + x+i, 2);
+//                putpixel(x0 - y-i, y0 + x+i, 3);
+//                putpixel(x0 - x-i, y0 + y+i, 4);
+//                putpixel(x0 - x-i, y0 - y-i, 5);
+//                putpixel(x0 - y-i, y0 - x-i, 6);
+//                putpixel(x0 + y+i, y0 - x-i, 7);
+//                putpixel(x0 + x+i, y0 - y-i, 8);
+                putpixel(x0 + x-i, y0 + y-i, 1);
+                putpixel(x0 + y-i, y0 + x-i, 2);
+                putpixel(x0 - y+i, y0 + x-i, 3);
+                putpixel(x0 - x+i, y0 + y-i, 4);
+                putpixel(x0 - x+i, y0 - y+i, 5);
+                putpixel(x0 - y+i, y0 - x+i, 6);
+                putpixel(x0 + y-i, y0 - x+i, 7);
+                putpixel(x0 + x-i, y0 - y+i, 8);
+            }
+        }
         if (error > 0) {
             x = x - 1;
             dx = dx + 2;
@@ -186,9 +210,9 @@ void midpoint_algorithm(int x0, int y0, int radius) {
 }
 
 void create_smiley() {
-    midpoint_algorithm(250,250,150);
-    midpoint_algorithm(190,230,20);
-    midpoint_algorithm(300,230,20);
+    midpoint_algorithm(250,250,150,1);
+    midpoint_algorithm(190,230,20,1);
+    midpoint_algorithm(300,230,20,1);
 
     int x0, y0, radius;
     x0 = 250;
@@ -216,7 +240,7 @@ void create_smiley() {
 }
 
 void create_logo() {
-    midpoint_algorithm(250,250,150);
+    midpoint_algorithm(250,250,150,1);
     //rectangle bottom
     int x0, y0;
     x0 = 170;
