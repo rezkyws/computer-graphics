@@ -4,6 +4,8 @@
 
 #include "stroke.h"
 
+#define SIN(x) sin(x * 3.141592653589 / 180)
+#define COS(x) cos(x * 3.141592653589 / 180)
 
 void dda_line_normal(int x1, int x2, int y1, int y2, int colour, int width) {
     float dx, dy, len, x, y;
@@ -261,5 +263,73 @@ void bresenham_line(int x0, int y0, int x1, int y1, int colour, int width) {
         x = x + 1;
         batas_y = y + width;
         batas_x = x + width;
+    }
+}
+
+int * translate_point( int P[], int T[])
+{
+    P[0] = P[0] + T[0];
+    P[1] = P[1] + T[1];
+
+    return P;
+}
+
+int * translate_line( int P[][2], int T[])
+{
+    // calculating translated coordinates
+    P[0][0] = P[0][0] + T[0];
+    P[0][1] = P[0][1] + T[0];
+    P[1][0] = P[1][0] + T[1];
+    P[1][1] = P[1][1] + T[1];
+
+    return P;
+}
+
+int * rotate_line(int P[][2], double angle) {
+    int x_shifted = P[0][1] - P[0][0];
+    int y_shifted = P[1][1] - P[1][0];
+
+    P[0][1]=P[0][0]+(x_shifted * COS(angle) - y_shifted * SIN(angle));
+    P[1][1]=P[1][0]+(x_shifted * SIN(angle) + y_shifted * COS(angle));
+
+    return P;
+}
+
+//void findNewCoordinate(int s[][2], int p[][1])
+//{
+//    int temp[2][1] = { 0 };
+//
+//    for (int i = 0; i < 2; i++)
+//        for (int j = 0; j < 1; j++)
+//            for (int k = 0; k < 2; k++)
+//                temp[i][j] += (s[i][k] * p[k][j]);
+//
+//    p[0][0] = temp[0][0];
+//    p[1][0] = temp[1][0];
+//}
+
+// Scaling the Polygon
+int * scale(int P[][2], int sx, int sy)
+{
+//    // Initializing the Scaling Matrix.
+//    int s[2][2] = { sx, 0, 0, sy };
+//    int p[2][1];
+
+    P[0][1] = P[0][1] + (abs((P[0][1]-P[0][0]))*sx);
+    P[1][1] = P[1][1] + (abs((P[1][1]-P[1][0]))*sy);
+
+
+    return P;
+}
+
+int reflect(int x,  int y, int style, int measure)
+{
+    //horizontal
+    if (style == 1){
+        x = x - measure;
+        return x;
+    } else { //vertical
+        y = y - measure;
+        return y;
     }
 }
